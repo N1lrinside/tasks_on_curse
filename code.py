@@ -14,6 +14,8 @@ def search_number_phone_on_url(name_url):
     number=re.findall(r'[^0-9]\+?[78]{1}[-\s]?\(?\d{3}\)?[-\s]?\d{3}[-\s]?\d{2}[-\s]?\d{2}\b',html_code)
     change_to_format=list(map(lambda x: re.sub(r'^7','8',re.sub(r'[^0-9]','',x)),number))
     print('Recognized numbers:',end=' ')
+    with open(name_url, 'wb'):
+        pass
     return list(dict.fromkeys(change_to_format)) # возвращаем уникальные номера
 def main():
     try:
